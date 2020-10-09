@@ -1,0 +1,51 @@
+---
+output: pdf_document
+---
+
+
+```{r setup, echo=FALSE, results=FALSE}
+knitr::opts_chunk$set(fig.height=3, comment="#")
+```
+
+
+
+
+David Kahle
+
+STA6375: Computational Statistics I
+
+\begin{center}
+Homework 3
+\end{center}
+
+
+
+1. 
+
+```{r, indent="    ", message=FALSE}
+library("tidyverse")
+
+df <- expand.grid("x" = 1:10, "y" = 1:10) 
+ggplot(df, aes(x, y)) +
+  geom_point() +
+  theme_minimal()
+```
+
+2. 
+
+```{r, indent="    ", message=FALSE}
+ggplot(df, aes(x, y)) +
+  geom_point() +
+  theme_minimal() +
+  coord_equal()
+```
+
+
+
+
+
+
+
+
+
+
