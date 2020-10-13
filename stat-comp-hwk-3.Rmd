@@ -112,6 +112,18 @@ zapsmall(V %*% Lamda %*% VT)
 zapsmall(crossprod(V))
 ```
 
+2c.
+```{r}
+A <- matrix(c(1,2,3,4,5,6,7,8,6,8,10,12), nrow = 4, byrow = FALSE)
+s_v_d <- svd(A)
+U <- s_v_d$u
+D <- s_v_d$d
+E <- diag(D)
+V <- s_v_d$v
+A
+zapsmall(U %*% E %*% t(V))
+```
+
 
 
 
