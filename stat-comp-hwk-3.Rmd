@@ -124,7 +124,20 @@ A
 zapsmall(U %*% E %*% t(V))
 ```
 
-
+2d.
+```{r}
+A <- matrix(c(4,2,1,
+              2,4,2,
+              1,2,4), nrow = 3, byrow = TRUE)
+ev <- eigen(A)
+ev
+#you can do a Cholesky decomposition of A becasue A is positive definite since
+#all of its eigenvalues are positive and it's symmetric
+C <- chol(A)
+C
+A
+t(C) %*% C
+```
 
 
 
