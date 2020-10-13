@@ -9,8 +9,7 @@ knitr::opts_chunk$set(fig.height=3, comment="#")
 
 
 
-
-David Kahle
+Sonish Lamsal
 
 STA6375: Computational Statistics I
 
@@ -18,22 +17,33 @@ STA6375: Computational Statistics I
 Homework 3
 \end{center}
 
+```{r echo=FALSE}
+options(
+ggplot2.continuous.colour = "viridis",
+ggplot2.continuous.fill = "viridis",
+ggplot2.discrete.colour = "brewer",
+ggplot2.discrete.fill = "brewer"
+)
+```
 
 
-1. 
+1a.
 
-```{r, indent="    ", message=FALSE}
+```{r, message=FALSE}
 library("tidyverse")
+
+
 
 df <- expand.grid("x" = 1:10, "y" = 1:10) 
 ggplot(df, aes(x, y)) +
   geom_point() +
   theme_minimal()
+
 ```
 
-2. 
+1b. 
 
-```{r, indent="    ", message=FALSE}
+```{r, message=FALSE}
 ggplot(df, aes(x, y)) +
   geom_point() +
   theme_minimal() +
@@ -41,7 +51,39 @@ ggplot(df, aes(x, y)) +
 ```
 
 
+1c.
+```{r}
+set.seed(1)
+fuzz <- rnorm(nrow(df))
+ggplot(df,aes(x,y)) + geom_raster(aes(fill=fuzz))
+```
 
+1d.
+```{r}
+ggplot(df,aes(x,y)) + geom_raster(aes(fill=fuzz)) + coord_equal()
+```
+
+1e
+```{r}
+#ggplot(df,aes(x,y)) + geom_raster(aes(fill=fuzz)) + scale_fill_gradient2(low="white", high="black") coord_equal() +theme_light()
+ggplot(df, aes(x = x, y = y)) +
+  geom_raster(aes(fill = fuzz)) + 
+  scale_fill_gradient(low = "black", high = "white") + 
+  coord_equal() + 
+  theme_light() +
+  theme(legend.position = "none")
+
+```
+
+1f.
+```{r}
+ggplot(df, aes(x = x, y = y)) +
+  geom_tile(aes(fill = fuzz)) + 
+  scale_fill_gradient(low = "black", high = "white") + 
+  coord_equal() + 
+  theme_void() +
+  theme(legend.position = "none")
+```
 
 
 
