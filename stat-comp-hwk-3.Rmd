@@ -9,7 +9,7 @@ knitr::opts_chunk$set(fig.height=3, comment="#")
 
 
 
-Sonish Lamsal
+Sonish Lamsal / Bradley Thompson
 
 STA6375: Computational Statistics I
 
@@ -84,6 +84,10 @@ ggplot(df, aes(x = x, y = y)) +
   theme_void() +
   theme(legend.position = "none")
 ```
+
+
+I just want to see if this works
+
 
 
 
