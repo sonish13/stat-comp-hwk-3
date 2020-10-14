@@ -155,10 +155,57 @@ df<- data.frame(x=rnorm(1e3, mean= 3, sd=2 ))
 # V_1 <- solve(V)
 # A
 # V %*% Lamda %*% V_1
-
+A <- matrix(c(-1,3,1,
+              -7,9,1,
+              -2,2,4), nrow = 3, byrow = TRUE)
+ev <- eigen(A)
+V <- ev$vectors
+L <- ev$values
+Lamda <- diag(L)
+V_1 <- solve(V)
+A
+V %*% Lamda %*% V_1
 ```
 
+2b.
+```{r}
+A <- matrix(c(10,2,-6,2,7,0,-6,0,2), nrow = 3, byrow = TRUE)
+ev <- eigen(A)
+V <- ev$vectors
+L <- ev$values
+Lamda <- diag(L)
+VT <-t(V)
+A
+zapsmall(V %*% Lamda %*% VT)
+zapsmall(crossprod(V))
+```
 
+2c.
+```{r}
+A <- matrix(c(1,2,3,4,5,6,7,8,6,8,10,12), nrow = 4, byrow = FALSE)
+s_v_d <- svd(A)
+U <- s_v_d$u
+D <- s_v_d$d
+E <- diag(D)
+V <- s_v_d$v
+A
+zapsmall(U %*% E %*% t(V))
+```
+
+2d.
+```{r}
+A <- matrix(c(4,2,1,
+              2,4,2,
+              1,2,4), nrow = 3, byrow = TRUE)
+ev <- eigen(A)
+ev
+#you can do a Cholesky decomposition of A becasue A is positive definite since
+#all of its eigenvalues are positive and it's symmetric
+C <- chol(A)
+C
+A
+t(C) %*% C
+```
 
 
 
