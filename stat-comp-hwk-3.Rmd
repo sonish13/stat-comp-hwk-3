@@ -154,6 +154,7 @@ Lamda <- diag(L)
 V_1 <- solve(V)
 A
 V %*% Lamda %*% V_1
+#A = VLamdaV^-1
 ```
 
 2b.
