@@ -132,7 +132,7 @@ A <- matrix(c(4,2,1,
 ev <- eigen(A)
 ev
 #you can do a Cholesky decomposition of A becasue A is positive definite since
-#all of its eigenvalues are positive and it's symmetric
+#all of its eigenvalues are positive and it's symmetric.
 C <- chol(A)
 C
 A
@@ -151,6 +151,7 @@ Q <- qr.Q(QR)
 X <- qr.X(QR)
 X
 zapsmall(Q %*% R)
+
 ```
 
 
