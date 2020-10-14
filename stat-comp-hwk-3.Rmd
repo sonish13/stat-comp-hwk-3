@@ -56,14 +56,14 @@ ggplot(df, aes(x, y)) +
 set.seed(1)
 fuzz <- rnorm(nrow(df))
   ggplot(df,aes(x,y)) + 
-  geom_raster(aes(fill=fuzz))+
+  geom_tile(aes(fill=fuzz))+
   theme_minimal()
 ```
 
 1d.
 ```{r}
 ggplot(df,aes(x,y)) + 
-  geom_raster(aes(fill=fuzz)) + 
+  geom_tile(aes(fill=fuzz)) + 
   theme_minimal() +
   theme(legend.position="none") +
   coord_equal() 
@@ -72,7 +72,7 @@ ggplot(df,aes(x,y)) +
 1e
 ```{r}
 ggplot(df, aes(x = x, y = y)) +
-  geom_raster(aes(fill = fuzz)) + 
+  geom_tile(aes(fill = fuzz)) + 
   scale_fill_gradient(low = "black", high = "white") + 
   coord_equal() + 
   theme_light() +
